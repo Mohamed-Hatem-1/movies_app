@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/view_model/search/search_cubit.dart';
 import 'package:movies_app/views/screens/search_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchTextFormField extends StatelessWidget {
   final bool readOnly;
@@ -8,13 +10,14 @@ class SearchTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (value) {
+        context.read<SearchCubit>().getSearchMovies(value);
+      },
       readOnly: readOnly,
       onTap: readOnly
-          ? () => Navigator.pushNamed(
-              context,
-              SearchScreen.routeName,
-            )
+          ? () => Navigator.pushNamed(context, SearchScreen.routeName)
           : () {},
+
       decoration: InputDecoration(
         fillColor: Color(0xFF3A3F47),
         filled: true,
