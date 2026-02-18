@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/models/now_playing_response.dart';
-import 'package:movies_app/models/popular_response.dart';
-import 'package:movies_app/models/top_rated_response.dart';
 import 'package:movies_app/view_model/now_playing/now_playing_state.dart';
 
 class NowPlayingCubit extends Cubit<NowPlayingState> {

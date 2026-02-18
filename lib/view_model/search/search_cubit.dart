@@ -2,9 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/models/popular_response.dart';
 import 'package:movies_app/models/search_movie_response.dart';
-import 'package:movies_app/view_model/popular/popular_state.dart';
 import 'package:movies_app/view_model/search/search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {

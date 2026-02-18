@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/views/screens/home_screen.dart';
 import 'package:movies_app/views/screens/search_screen.dart';
+import 'package:movies_app/views/screens/watchlist_screen.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({
@@ -45,14 +46,13 @@ class MyBottomNavigationBar extends StatelessWidget {
               SearchScreen.routeName,
               (route) => false,
             );
+          } else if (index == 2 && currentIndex != 2) {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              WatchlistScreen.routeName,
+              (route) => false,
+            );
           }
-          // else if (index == 2 && currentIndex != 2) {
-          //   Navigator.pushNamedAndRemoveUntil(
-          //     context,
-          //     WatchlistScreen.routeName,
-          //     (route) => false,
-          //   );
-          // }
         },
       ),
     );

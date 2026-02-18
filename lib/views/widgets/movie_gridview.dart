@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/models/movie_model.dart';
+import 'package:movies_app/views/screens/movie_details_screen.dart';
 
 class MovieGridview extends StatelessWidget {
-    final List<MovieModel> movies;
-
-
+  final List<MovieModel> movies;
   const MovieGridview({super.key, required this.movies});
 
   @override
@@ -19,13 +18,22 @@ class MovieGridview extends StatelessWidget {
         childAspectRatio: 2 / 3,
       ),
       itemBuilder: (context, index) {
-                final movie = movies[index];
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.network(
-            'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-            fit: BoxFit.cover,
-            width: double.infinity,
+        final movie = movies[index];
+        return GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              MovieDetailsScreen.routeName,
+              arguments: movie,
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
           ),
         );
       },

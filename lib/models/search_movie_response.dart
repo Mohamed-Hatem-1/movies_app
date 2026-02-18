@@ -25,9 +25,9 @@ class SearchMovieResponse {
   }
 
   Map<String, dynamic> toJson() => {
-        'page': page,
-        'results': List<dynamic>.from(results.map((x) => x.toJson())),
-        'total_pages': totalPages,
-        'total_results': totalResults,
-      };
+    'page': page,
+    'results': List<dynamic>.from(results.map((x) => x.toJson())),
+    'total_pages': totalPages,
+    'total_results': totalResults,
+  };
 }

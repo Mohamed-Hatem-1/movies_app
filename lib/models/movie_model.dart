@@ -34,19 +34,27 @@ class MovieModel {
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
       adult: json['adult'] ?? false,
-      backdropPath: json['backdrop_path'],
-      genreIds: List<int>.from(json['genre_ids']),
-      id: json['id'],
-      originalLanguage: json['original_language'],
-      originalTitle: json['original_title'],
-      overview: json['overview'],
-      popularity: (json['popularity'] as num).toDouble(),
-      posterPath: json['poster_path'],
-      releaseDate: json['release_date'],
-      title: json['title'],
+      backdropPath: json['backdrop_path'] as String?,
+      genreIds: json['genre_ids'] != null
+          ? List<int>.from(json['genre_ids'])
+          : <int>[],
+      id: (json['id'] is int)
+          ? json['id'] as int
+          : (json['id'] is String ? int.tryParse(json['id']) ?? 0 : 0),
+      originalLanguage: json['original_language'] ?? '',
+      originalTitle: json['original_title'] ?? '',
+      overview: json['overview'] ?? '',
+      popularity: (json['popularity'] != null)
+          ? (json['popularity'] as num).toDouble()
+          : 0.0,
+      posterPath: json['poster_path'] as String?,
+      releaseDate: json['release_date'] ?? '',
+      title: json['title'] ?? '',
       video: json['video'] ?? false,
-      voteAverage: (json['vote_average'] as num).toDouble(),
-      voteCount: json['vote_count'],
+      voteAverage: (json['vote_average'] != null)
+          ? (json['vote_average'] as num).toDouble()
+          : 0.0,
+      voteCount: json['vote_count'] ?? 0,
     );
   }
 

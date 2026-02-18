@@ -4,16 +4,10 @@ class UpcomingDates {
   final String maximum;
   final String minimum;
 
-  const UpcomingDates({
-    required this.maximum,
-    required this.minimum,
-  });
+  const UpcomingDates({required this.maximum, required this.minimum});
 
   factory UpcomingDates.fromJson(Map<String, dynamic> json) {
-    return UpcomingDates(
-      maximum: json['maximum'],
-      minimum: json['minimum'],
-    );
+    return UpcomingDates(maximum: json['maximum'], minimum: json['minimum']);
   }
 }
 

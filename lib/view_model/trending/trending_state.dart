@@ -1,4 +1,4 @@
-import 'package:movies_app/models/trending_item.dart';
+import 'package:movies_app/models/movie_model.dart';
 
 class TrendingState {}
 
@@ -7,7 +7,7 @@ class TrendingInitial extends TrendingState {}
 class TrendingLoading extends TrendingState {}
 
 class TrendingLoaded extends TrendingState {
-  final List<TrendingItem> trendingMovies;
+  final List<MovieModel> trendingMovies;
   TrendingLoaded(this.trendingMovies);
 }
 

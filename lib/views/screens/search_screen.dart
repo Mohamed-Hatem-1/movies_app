@@ -36,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 builder: (context, state) {
                   if (state is SearchLoading) {
                     return const Center(child: CircularProgressIndicator());
-                  }else if (state is SearchLoaded) {
+                  } else if (state is SearchLoaded) {
                     return ListView.builder(
                       itemCount: state.searchedMovies.length,
                       itemBuilder: (context, index) =>

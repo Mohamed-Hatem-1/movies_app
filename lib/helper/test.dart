@@ -29,8 +29,14 @@ class MovieApp extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-              BottomNavigationBarItem(icon: Icon(Icons.bookmark), label: "Watch list"),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: "Search",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.bookmark),
+                label: "Watch list",
+              ),
             ],
           ),
         ),
@@ -64,9 +70,7 @@ class MovieGrid extends StatelessWidget {
       ),
       itemCount: posters.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: Image.asset(posters[index], fit: BoxFit.cover),
-        );
+        return Card(child: Image.asset(posters[index], fit: BoxFit.cover));
       },
     );
   }

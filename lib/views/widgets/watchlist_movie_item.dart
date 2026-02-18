@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/models/movie_model.dart';
+import 'package:movies_app/view_model/watchlist/watchlist_cubit.dart';
 import 'package:movies_app/views/screens/movie_details_screen.dart';
 
-class SearchedMovie extends StatelessWidget {
+class WatchlistMovieItem extends StatelessWidget {
   final MovieModel movie;
-  const SearchedMovie({super.key, required this.movie});
+
+  const WatchlistMovieItem({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class SearchedMovie extends StatelessWidget {
                 children: [
                   Text(
                     movie.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -78,23 +81,6 @@ class SearchedMovie extends StatelessWidget {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      Icon(
-                        Icons.local_attraction_outlined,
-                        color: Color(0xff92929D),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        'Action',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
                       const Icon(
                         Icons.calendar_today_outlined,
                         color: Color(0xff92929D),
@@ -114,6 +100,12 @@ class SearchedMovie extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete, color: Colors.redAccent),
+              onPressed: () {
+                context.read<WatchlistCubit>().toggleWatchlist(movie);
+              },
             ),
           ],
         ),

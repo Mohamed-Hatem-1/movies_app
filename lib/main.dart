@@ -7,8 +7,11 @@ import 'package:movies_app/view_model/search/search_cubit.dart';
 import 'package:movies_app/view_model/top_rated/top_rated_cubit.dart';
 import 'package:movies_app/view_model/trending/trending_cubit.dart';
 import 'package:movies_app/view_model/upcoming/upcoming_cubit.dart';
+import 'package:movies_app/view_model/watchlist/watchlist_cubit.dart';
 import 'package:movies_app/views/screens/home_screen.dart';
+import 'package:movies_app/views/screens/movie_details_screen.dart';
 import 'package:movies_app/views/screens/search_screen.dart';
+import 'package:movies_app/views/screens/watchlist_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,11 +30,16 @@ class MyApp extends StatelessWidget {
         BlocProvider<UpcomingCubit>(create: (context) => UpcomingCubit()),
         BlocProvider<NowPlayingCubit>(create: (context) => NowPlayingCubit()),
         BlocProvider<SearchCubit>(create: (context) => SearchCubit()),
+        BlocProvider<WatchlistCubit>(
+          create: (context) => WatchlistCubit()..loadWatchlist(),
+        ),
       ],
       child: MaterialApp(
         routes: {
-          '/search': (context) => const SearchScreen(),
-          '/home': (context) => const HomeScreen(),
+          SearchScreen.routeName: (context) => const SearchScreen(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
+          MovieDetailsScreen.routeName: (context) => MovieDetailsScreen(),
+          WatchlistScreen.routeName: (context) => const WatchlistScreen(),
         },
         debugShowCheckedModeBanner: false,
         title: 'Movies App',
