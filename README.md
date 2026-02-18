@@ -1,16 +1,37 @@
-# movies_app
+# 🎬 Movies App (Flutter)
 
-A new Flutter project.
+A modern Flutter app to browse and manage movies with a beautiful UI and persistent watchlist.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Browse **Now Playing**,**Upcoming**,**Top Rated**, and**Popular** movies.
+- **Search** functionality.
+- Add/remove movies to/from **Watchlist**.
+- Persistent data storage with **SharedPreferences**.
+- Interactive **Movie Details** page with overview, rating, release date, and genres.
+- Clean architecture using **Bloc/Cubit** for state management.
 
-A few resources to get you started if this is your first Flutter project:
+## Demo Video
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Check out the demo below! 🎥
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div align="center">
+
+<https://github.com/user-attachments/assets/ca9108b3-e8d2-4f60-834a-7e827bbe71c5>
+</div>
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/movies_app.git
+2. Navigate to the project folder
+
+    ```bash
+    cd movies_app
+3. Run the app
+
+    ```bash
+    flutter pub get
+    flutter run
